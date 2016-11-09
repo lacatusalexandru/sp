@@ -28,15 +28,15 @@ lightReadingRight = analogRead(sensorPinRight);
 lightReadingCenter = analogRead(sensorPinCenter);
 lightReadingLeft = analogRead(sensorPinLeft);
 
-  pinMode( Motor1A, OUTPUT );  // Motorul din dreapta
-  pinMode( Motor1B, OUTPUT );
-  pinMode( Motor2A, OUTPUT );  // Motorul din stanga
-  pinMode( Motor2B, OUTPUT );
+  pinMode(Motor1A, OUTPUT);  // Motorul din dreapta
+  pinMode(Motor1B, OUTPUT);
+  pinMode(Motor2A, OUTPUT);  // Motorul din stanga
+  pinMode(Motor2B, OUTPUT);
   
-  digitalWrite( Motor1A, LOW );
-  digitalWrite( Motor1B, LOW );
-  digitalWrite( Motor2A, LOW );
-  digitalWrite( Motor2B, LOW );
+  digitalWrite(Motor1A, LOW);
+  digitalWrite(Motor1B, LOW);
+  digitalWrite(Motor2A, LOW);
+  digitalWrite(Motor2B, LOW);
 }
 
 void loop()
@@ -45,31 +45,47 @@ void loop()
       lightReadingCenter < lightTolerance ||
       lightReadingLeft < lightTolerance )
       {
-        digitalWrite( Motor1A, LOW );
-        analogWrite( Motor1B, LOW );
-        
-        digitalWrite( Motor2A, LOW );
-        analogWrite( Motor2B, LOW );
+        digitalWrite(Motor1A, LOW);
+        analogWrite(Motor1B, LOW);
+       
+        digitalWrite(Motor2A, LOW);
+        analogWrite(Motor2B, LOW);
+
+        delay(readingDelay);
       }
         if(lightReadingCenter > lightTolerance)
         {
-          digitalWrite( Motor1A, HIGH );
-          analogWrite( Motor1B, 50 );
+          digitalWrite(Motor1A, HIGH);
+          analogWrite(Motor1B, 50 );
 
-          digitalWrite( Motor2A, HIGH );
-          analogWrite( Motor2B, 50 );
+          digitalWrite(Motor2A, HIGH);
+          analogWrite(Motor2B, 50 );
+
+          delay(readingDelay);
+          digitalWrite(Motor1A, LOW);
+          digitalWrite(Motor2A, LOW);
+          analogWrite(Motor1B, 0);
+          analogWrite(Motor2B, 0);
         }
 
         if(lightReadingLeft > lightTolerance)
         {
-          digitalWrite( Motor2B, HIGH );
-          analogWrite( Motor2A, 50 );
+          digitalWrite(Motor2B, HIGH);
+          analogWrite(Motor2A, 50);
+
+          delay(readingDelay);
+          digitalWrite(Motor2A, LOW);
+          analogWrite(Motor2B, 0);
         }
         
         if(lightReadingLeft > lightTolerance)
         {
-          digitalWrite( Motor1B, HIGH );
-          analogWrite( Motor1A, 50 );
+          digitalWrite(Motor1B, HIGH);
+          analogWrite(Motor1A, 50);
+
+          delay(readingDelay);
+          digitalWrite(Motor1A, LOW);
+          analogWrite(Motor1B, 0);
         }
 
 }
