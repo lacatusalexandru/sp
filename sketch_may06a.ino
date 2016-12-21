@@ -57,6 +57,7 @@ void loop()
           analogWrite( Motor1B, 50 );   // edit 21.12.2016 am substituit 50 cu 250, apoi cu 450
                                         // acelasi bazait scos de motoare, insa de data asta se misa haotic cateva secunde, indiferent de ce comanda ii dadeam
         }         //note to self : de masurat tensiunea ce iese din motor driver si pica pe motoare;
+                  // de incercat lipirea cate unui condesator 5...45pF in paralel cu fiecare motor pentru diminuarea bazaitului
     }
     if(toSend == 'B' || toSend == 'H' || toSend == 'J')
     {
