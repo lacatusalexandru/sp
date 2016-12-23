@@ -59,7 +59,8 @@ void loop()
         }         //note to self : de masurat tensiunea ce iese din motor driver si pica pe motoare;
                   // de incercat lipirea cate unui condesator 5...45pF in paralel cu fiecare motor pentru diminuarea bazaitului
                   //Captain's log : modulul drive are condensatoare incorporate pe iesiri, consuma intre 4.5 si 5.6 V, iar pe motoare cade o tensiune prea mica
-                  //                therefore, problema bazaitului a fost descoperita si partial rezolvata!
+                  //                therefore, problema bazaitului a fost descoperita si partial rezolvata
+                  //                din fisa tehnica : L298N trebuie alimentat la o ten de aprox 7V http://pdf1.alldatasheet.com/datasheet-pdf/view/22440/STMICROELECTRONICS/L298N.html
     }
     if(toSend == 'B' || toSend == 'H' || toSend == 'J')
     {
